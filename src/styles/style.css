@@ -87,6 +87,8 @@ body {
 	font-weight: 300;
 }
 .todos__item {
+	display: flex;
+	justify-content: space-between;
 	padding: 5px 5px;
 }
 
@@ -103,8 +105,15 @@ body {
 	margin: 100px;
 }
 
-.test__btn {
-	width: 200px;
-	height: 100px;
-	background-color: red;
+.del__btn {
+	width: 63px;
+	height: 25px;
+	font-family: 'Rubik', sans-serif;
+	border: none;
+	border-radius: 2px;
+	transition: 400ms;
+}
+
+.del__btn:hover {
+	background-color: #afafaf;
 }
