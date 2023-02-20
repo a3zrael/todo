@@ -22,13 +22,12 @@ body {
 	list-style-type: none;
 	padding: 15px 20px;
 }
-.container {
+.box__form {
 	max-width: 100%;
 	height: 100%;
 	margin: 0 auto;
 	padding: 5px 15px;
 	box-shadow: 0 4px 15px #303338;
-	border-radius: 0 0 15px 15px;
 	transition: 400ms;
 }
 .form__taskName {

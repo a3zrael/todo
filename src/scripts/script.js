@@ -30,23 +30,34 @@ function removeValue() {
     input.value = ''
 }
 
-function removeTask() {
+function removeTask(task, tasks) {
+    console.log(task);
+    let indexTasks = tasks.findIndex((t) => t.id === task.id);
 
+    tasks.splice(indexTasks, 1);
+
+    // renderTasks()
+
+    ul.children[ul.children.length - 1 - indexTasks].remove()
+    setData()
 }
+// console.log(ul.children);}
 
 function createTask(task) {
+    console.log(task);
     const li = document.createElement('li')
     const text = document.createElement('span')
     const btn = document.createElement('button')
 
     li.className = ('todos__item')
+    li.setAttribute('id', task.id);
 
     text.innerHTML = `${task.title}`;
 
     btn.innerHTML = 'Удалить'
     btn.className = 'del__btn'
     btn.addEventListener('click', () => {
-        removeTask()
+        removeTask(task, tasks)
     })
 
     li.append(text, btn)
@@ -54,10 +65,13 @@ function createTask(task) {
     return li;
 }
 
+let id = 0
+
 function pushObj() {
     let valueInput = input.value
 
     const task = {
+        id: id,
         title: valueInput,
     }
 
@@ -72,13 +86,15 @@ function pushObj() {
     ul.prepend(taskElem);
 
     removeValue()
+
+    id = id + 1
+
+    return task;
 }
 
 function renderTasks() {
     for (let i = 0; i < tasks.length; i++) {
-
         let taskElem = createTask(tasks[i])
-
         ul.prepend(taskElem);
     }
 }
